@@ -44,7 +44,7 @@ get_coords
 ######################const coords of Mekkah#################
 Mlon=39.826215
 Mlat=21.422526
-delta_lon=$(("Mlon"-"lon"))
+delta_lon=$(awk -v a="$Mlon" -v b="$lon" 'BEGIN{print a-b}')
 
 ##############################calculating approx. qibla direction
 qibla_deg=$(awk -v lat="$lat" -v lon="$lon" -v Mlat="$Mlat" -v Mlon="$Mlon" '
